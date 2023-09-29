@@ -20,12 +20,13 @@ const PORT = 1999; // Replace with your desired port number
 
 udpServer.on('message', (message, remote) => {
   const data = message.toString();
+    // send it to the react three fiber
   server.emit('udpData', data);
 });
 
 udpServer.bind(PORT);
 
-// Socket.io connection handling
+// server connection handling
 server.on('connection', (socket) => {
   console.log('Client connected');
 }); 
